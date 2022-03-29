@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "simple-spring-app-4-testing-debugging-in-k8s.fullname" . }}
+  labels:
+    {{- include "simple-spring-app-4-testing-debugging-in-k8s.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http8088
+      nodePort: {{ .Values.service.nodePort }}
+      protocol: TCP
+  selector:
+    {{- include "simple-spring-app-4-testing-debugging-in-k8s.selectorLabels" . | nindent 4 }}
