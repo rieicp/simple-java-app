@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: service8088
+    release: kube-prometheus
+  name: service-monitor-001
+  namespace: default
+spec:
+  endpoints:
+    - interval: 30s
+      port: service8088
+      path: /actuator/prometheus
+      scheme: http
+  jobLabel: service-monitor-001
+  selector:
+    matchLabels:
+      {{- include "simple-spring-app-4-testing-debugging-in-k8s.labels" . | nindent 6 }}
