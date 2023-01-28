@@ -5,11 +5,11 @@
 replicaCount: 1
 
 image:
-  repository: simple-spring-app-in-k8s-testing-debug
+  repository: rieicp/simple-app
   pullPolicy: IfNotPresent
   containerPort: 8088
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.0.1"
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""

@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: rieicp/simple-app:latest
+    argocd-image-updater.argoproj.io/update-strategy: digest
+  name: simple-app-cleo
+  namespace: argocd
+spec:
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: argocd-cleo
+  project: default
+  source:
+    path: helm/simple-spring-app-4-testing-debugging-in-k8s
+    repoURL: https://github.com/rieicp/simple-java-app.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
