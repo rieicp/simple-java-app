@@ -4,7 +4,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd-image-updater.argoproj.io/image-list: rieicp/simple-app
+    argocd-image-updater.argoproj.io/image-list: ghcr.io/rieicp/simple-app
     argocd-image-updater.argoproj.io/update-strategy: latest
   name: simple-app-cleo
   namespace: argocd

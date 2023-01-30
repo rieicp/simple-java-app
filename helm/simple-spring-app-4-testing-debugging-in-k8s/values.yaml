@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: rieicp/simple-app
+  repository: ghcr.io/rieicp/simple-app
   pullPolicy: Always
   containerPort: 8088
   # Overrides the image tag whose default is the chart appVersion.
