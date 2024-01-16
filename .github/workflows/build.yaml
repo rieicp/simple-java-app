@@ -45,4 +45,4 @@ jobs:
             cache-from: type=gha
             cache-to: type=gha,mode=max
             tags: |
-              ghcr.io/rieicp/${{ env.JAVA_IMAGE_NAME }}:v1.1.0
+              ghcr.io/rieicp/${{ env.JAVA_IMAGE_NAME }}:latest
